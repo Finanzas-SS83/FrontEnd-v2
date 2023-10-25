@@ -1,0 +1,136 @@
+.example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+}
+
+.header{
+  background-color: #3a3b3a;
+  height: 80px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.logo{
+  align-items: center;
+  align-self: flex-start;
+}
+
+.menu{
+  margin: 25px;
+  position: absolute;
+  background-color: transparent;
+  border: none;
+}
+
+.header img{
+  padding-left: 100px;
+  width: auto;
+  height: 80px;
+  align-self: center;
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Coloca los botones a la derecha */
+  margin-top: 20px; /* Espacio entre el encabezado y los botones */
+}
+
+.button-container {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; /* Coloca los botones a la derecha */
+  margin-top: 20px; /* Espacio entre el encabezado y los botones */
+}
+
+.button {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #3a3b3a;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  margin-left: 10px; /* Espacio entre los botones */
+  text-decoration: none;
+  transition: background-color 0.3s;
+  font-weight: bold;
+  margin-right: 30px;
+}
+
+.button:hover {
+  background-color: #95b6aa;
+}
+.icon {
+  margin-right: 5px; /* Espacio entre el icono y el texto */
+}
+
+.notifications{
+  font-size: 40px;
+  width: 40px;
+  height: 40px;
+}
+.profile{
+  padding: 0 50px;
+  font-size: 70px;
+  width: 70px;
+  height: 70px;
+}
+/* sidebar*/
+
+mat-sidenav{
+  width: 200px;
+  background-color: #f1f1f1;
+}
+
+mat-nav-list{
+  margin: 0;
+  padding: 10px 15px;
+
+}
+
+.link{
+
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 8px 0;
+  margin: 10px 0;
+  text-decoration: none;
+  color: black;
+}
+
+.link mat-icon{
+  padding: 0 15px;
+}
+
+mat-nav-list :hover{
+  background-color: #95b6aa;
+  color: white;
+}
+
+#back{
+  position: absolute;
+  bottom: 0;
+  text-align: center;
+  order: 1;
+  margin-top: auto;
+  background-color: #000000;
+  color: white;
+  padding-right: 80px;
+}
+
+#back:hover{
+  color: #95b6aa;
+}
+
+.content{
+  flex: 1 0 auto;
+  background-color: #bdbdbd;
+}

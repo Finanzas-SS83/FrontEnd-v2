@@ -1,0 +1,28 @@
+<div class="login-container">
+  <h1>Finance Concept</h1>
+  <h3>Login</h3>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
+    </div>
+
+    <button type="submit" class="btn btn-primary">Login</button>
+
+
+    <div *ngIf="loginError" class="alert alert-danger mt-3">
+      Login failed. Please check your email and password.
+    </div>
+  </form>
+
+  <p class="mt-2">
+    Did you forget your password?
+    <a routerLink="/forgot-password">Forgot Password</a>
+  </p>
+</div>

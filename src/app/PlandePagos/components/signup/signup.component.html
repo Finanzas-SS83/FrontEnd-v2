@@ -1,0 +1,42 @@
+<div>
+  <h1>Add Student</h1>
+  <form [formGroup]="studentForm" (submit)="onSubmit()">
+    <div>
+      <label>First Name:</label>
+      <input matInput placeholder="Your Name" type="name" formControlName="firstName"  [(ngModel)]="signupData.firstName" required>
+    </div>
+    <div>
+      <label>Last Name:</label>
+      <input matInput placeholder="Your Last Name" type="lastName" formControlName="lastName"  [(ngModel)]="signupData.lastName" required>
+    </div>
+    <div>
+      <label>Phone:</label>
+      <input matInput placeholder="Your Phone" type="phone" formControlName="phone"  [(ngModel)]="signupData.phone" required>
+
+    </div>
+    <div>
+      <label>Email:</label>
+      <input matInput placeholder="Your Email" type="email" formControlName="email"  [(ngModel)]="signupData.email" required>
+
+    </div>
+    <div>
+      <label>DNI:</label>
+      <input matInput placeholder="Your DNI" type="dni" formControlName="dni"  [(ngModel)]="signupData.dni" required>
+
+    </div>
+    <div>
+      <label>Password:</label>
+      <input matInput placeholder="Your Password" type="password"  formControlName="password"  [(ngModel)]="signupData.password" required>
+       <div *ngIf="studentForm.get('password')?.hasError('passwordLength')">
+        Password must be at least 8 characters long.
+      </div>
+    </div>
+    <div>
+      <label>Confirm Password:</label>
+      <input matInput placeholder="Confirm Password" type="password" formControlName="confirmPassword"  [(ngModel)]="signupData.confirmPassword" required>
+
+    </div>
+    <button mat-button color="primary" (click)="addStudent()">Add</button>
+  </form>
+</div>
+
