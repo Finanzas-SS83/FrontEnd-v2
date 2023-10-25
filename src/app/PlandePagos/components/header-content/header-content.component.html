@@ -1,7 +1,7 @@
 <div class="example-container" *ngIf="shouldRun">
   <div class="header">
     <div class="logo">
-      <button (click)="snav.toggle()" class="menu"><mat-icon>menu</mat-icon></button>
+
 
     </div>
     <div class="button-container">
@@ -14,21 +14,10 @@
     </div>
   </div>
 
-  <mat-sidenav-container class="content">
-    <mat-sidenav #snav [mode]="'side'">
-      <mat-nav-list>
-        <a href="home" class="link"><mat-icon>home</mat-icon> Home</a>
-        <a href="record" class="link"><mat-icon>description</mat-icon> Record</a>
-        <a routerLink="/student-profile/1" class="link"><mat-icon>account_circle</mat-icon> My profile</a>
-        <a href="#back" class="link" id="back"><mat-icon>meeting_room</mat-icon> Back </a>
-      </mat-nav-list>
-    </mat-sidenav>
 
-    <mat-sidenav-content>
 
       <!--aqui van las etiquetas del contenido-->
       <p><router-outlet></router-outlet></p>
 
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+
 </div>
