@@ -1,0 +1,12 @@
+.centered-content {
+  text-align: center;
+  margin-top: 5%;
+}
+
+.title-style {
+  font-weight: bold;
+}
+.spacing {
+  margin-top: 20px; /* Ajusta el valor según el espacio que desees entre las tablas */
+}
+

@@ -1,0 +1,8 @@
+  <div class="centered-content">
+  <h1 class="title-style">MI HISTORIAL</h1>
+  <h2>En esta sección accederemos a todas las transacciones hechas por el usuario</h2>
+
+</div>
+  <ng-container class="p-10"  *ngFor="let data of datos; let i = index">
+    <app-table-cuota class="flex p-10" [tableFee]="data"  [class.spacing]="i > 0"></app-table-cuota>
+  </ng-container>

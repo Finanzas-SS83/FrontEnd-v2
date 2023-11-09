@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { LoginService } from "../../services/login-service/login.service";
 import { Router } from '@angular/router';
+import {LoginService} from "../../../services/login-service/login.service";
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -25,8 +25,7 @@ export class LoginComponent {
       this.loginService.login(formData.email, formData.password).subscribe(
         (success) => {
           if (success) {
-
-              this.router.navigate(['/home', { email: formData.email }]);
+              this.router.navigate(['/form', { email: formData.email }]);
           } else {
             this.loginError = true;
           }
@@ -38,4 +37,6 @@ export class LoginComponent {
       );
     }
   }
+
+
 }
