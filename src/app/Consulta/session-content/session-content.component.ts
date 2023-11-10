@@ -79,7 +79,8 @@ export class SessionContentComponent implements OnInit  {
         CF: this.CF,
         SegRiePer: this.SegRiePer,
         GastosAdm: this.GastosAdm,
-        tipoMoneda: this.datosForm.tipoMoneda
+        tipoMoneda: this.datosForm.tipoMoneda,
+        cPG: this.cPG
       }
 
       console.log("TABLEFEE",this.tableFee);
@@ -87,6 +88,7 @@ export class SessionContentComponent implements OnInit  {
       const COK = 0.50;
       const flujosDescontados = this.flujos.map((flujo, index) => flujo / Math.pow(1 + COK, index + 1));
       const TasaDescuento = Math.pow(1 + COK, this.frec / this.NDxA) - 1;
+
       const TCEA = Math.pow(1 + this.TIR, this.NDxA / this.frec) - 1;
       this.VAN = this.Prestamo + flujosDescontados.reduce((acc, val) => acc + val, 0);
       this.TIR = IRR(this.flujos, 0.1 );

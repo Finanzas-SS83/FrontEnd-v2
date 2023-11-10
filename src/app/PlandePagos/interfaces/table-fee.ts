@@ -5,5 +5,6 @@ export interface TableFee {
   pSegDesPer: number,
   CF: number,
   SegRiePer: number,
-  GastosAdm: number
+  GastosAdm: number,
+  cPG: number
 }

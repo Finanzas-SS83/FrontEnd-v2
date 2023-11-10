@@ -10,7 +10,7 @@ import {SignupComponent} from "./PlandePagos/components/signup/signup.component"
 import {SessionContentComponent} from "./Consulta/session-content/session-content.component";
 
 const routes: Routes = [
-  { path: '', redirectTo: '/session', pathMatch: 'full' },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   {path: 'home', component: FormContentComponent},
   {path: 'historial', component: DataHistoryComponent},
   {path: 'form', component: FormContentComponent },

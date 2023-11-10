@@ -6,7 +6,7 @@ export function calcularFlujo(Cuota: number, SegRie: number, GPS: number, Portes
     }
 
     if (NC === N + 1) {
-        resultado += ACF;
+        resultado -= ACF;
     }
     return resultado;
 }
