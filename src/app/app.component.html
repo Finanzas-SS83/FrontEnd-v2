@@ -1,2 +1,12 @@
-<app-header-content></app-header-content>
+<ng-container *ngIf="isProfileOrSignRoute()">
+  <app-header-content></app-header-content>
+</ng-container>
 
+<div class="container" *ngIf="!isProfileOrSignRoute()">
+  <section class="sidebar max-h-screen">
+    <app-side-bar-content></app-side-bar-content>
+  </section>
+  <div class="content w-full">
+    <router-outlet></router-outlet>
+  </div>
+</div>

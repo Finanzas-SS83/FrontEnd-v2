@@ -1,0 +1,41 @@
+.center-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  flex-direction: column;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-row button {
+  margin: 0 30px;
+}
+
+.custom-subtitle {
+  font-size: 1.2em;
+  font-weight: bold;
+  margin-right: 15px;
+  margin-top: 16px;
+}
+
+.form-filter {
+  margin-top: 25px;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.custom-h1 {
+  font-size: 35px;
+  font-weight: bold;
+}

@@ -1,0 +1,68 @@
+<div class="center-box">
+  <h1 class="custom-h1">Ingresar datos para una compra inteligente</h1>
+  <div class="form-filter">
+    <mat-card class="filter">
+      <mat-card-content class="subtitle">
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Monto</mat-card-subtitle>
+          <mat-form-field>
+            <input matInput type="number" step="0.01" placeholder="Escribe..." (input)="onInputChange()" [(ngModel)]="monto">
+          </mat-form-field>
+        </div>
+
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Tipo de moneda</mat-card-subtitle>
+          <mat-form-field>
+            <mat-select placeholder="Elige..." (change)="onInputChange()" [(ngModel)]="tipoMoneda">
+              <mat-option value="USD">Dólar</mat-option>
+              <mat-option value="PEN">Soles</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Tipo de tasa de interes</mat-card-subtitle>
+          <mat-form-field>
+            <mat-select placeholder="Elige..." (change)="onInputChange()" [(ngModel)]="tipoTasaInteres">
+              <mat-option value="TNA">Nominal (TNA)</mat-option>
+              <mat-option value="TEA">Efectiva (TEA)</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Cantidad de periodos de gracia</mat-card-subtitle>
+          <mat-form-field>
+            <input matInput type="number" placeholder="Escribe..." (input)="onInputChange()" [(ngModel)]="cantidadPeriodos">
+          </mat-form-field>
+        </div>
+
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Tipo de periodo de gracia</mat-card-subtitle>
+          <mat-form-field>
+              <mat-select placeholder="Elige..." (change)="onInputChange()" [(ngModel)]="tipoPeriodoGracia">
+              <mat-option value="P">Parcial</mat-option>
+              <mat-option value="T">Total</mat-option>
+              <mat-option value="S">Sin plazo</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <div class="input-row">
+          <mat-card-subtitle class="custom-subtitle">Plazo de pago</mat-card-subtitle>
+          <mat-form-field>
+            <mat-select placeholder="Elige..." (ngModelChange)="onInputChange()" [(ngModel)]="plazoPago">
+              <mat-option value="2"> 2 años</mat-option>
+              <mat-option value="3"> 3 años</mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <br>
+        <div class="button-row">
+          <a mat-button style="color: black; background-color: #7cb9e8" class="button" (click)="onConsultar()" routerLink="/session">Consultar</a>
+          <button mat-button style="color: black; background-color: #7cb9e8" class="button" (click)="toReset()">Cancelar</button>
+        </div>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

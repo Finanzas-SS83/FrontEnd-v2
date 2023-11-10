@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, ValidatorFn } from '@angular/forms';
-import { SignupService } from "../../services/signup-service/signup.service";
 import { Router } from "@angular/router";
-import { SignupData } from "../../interfaces/signupdata";
 import { MatTableDataSource } from "@angular/material/table";
+import {SignupService} from "../../../services/signup-service/signup.service";
+import {SignupData} from "../../interfaces/signupdata";
 
 function customPasswordValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

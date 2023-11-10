@@ -1,0 +1,59 @@
+<div class="w-full">
+  <div class="flex justify-between mb-5">
+    <div class="data-container">
+      <div class="data-row">
+        <span class="data-label">Monto:</span>
+        <span class="data-value">{{formatoMosneda(datosForm.monto,tipoMoneda )}}</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Prestamo:</span>
+        <span class="data-value">{{ formatoMosneda(Prestamo, tipoMoneda) }}</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Tasa de Interés:</span>
+        <span class="data-value"> {{tasa*100}}% ({{ datosForm.tipoTasaInteres }})</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Plazo de Pago:</span>
+        <span class="data-value">{{ datosForm.plazoPago }}meses </span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">Tipo de Moneda:</span>
+        <span class="data-value">{{ tipoMoneda}}</span>
+      </div>
+
+      <div class="data-row">
+        <span class="data-label">PV (Valor Presente):</span>
+        <span class="data-value">{{ formatoMosneda(PV, tipoMoneda) }}</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">TEA (Tasa Efectiva Anual):</span>
+        <span class="data-value">{{ TEA *100}} %</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">TEM (Tasa Efectiva Mensual):</span>
+        <span class="data-value">{{ TEM *100}} %</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">CI (Capital Inicial):</span>
+        <span class="data-value">{{ formatoMosneda(CI, tipoMoneda) }}</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">CF (Capital Final):</span>
+        <span class="data-value">{{ formatoMosneda(CF,tipoMoneda) }}</span>
+      </div>
+
+
+      <div class="data-row">
+        <span class="data-label">VAN (Valor Actual Neto):</span>
+        <span class="data-value">{{ VAN }}</span>
+      </div>
+      <div class="data-row">
+        <span class="data-label">TIR (Tasa Interna de Retorno):</span>
+        <span class="data-value">{{ TIR }}</span>
+      </div>
+    </div>
+  </div>
+
+
+</div>
