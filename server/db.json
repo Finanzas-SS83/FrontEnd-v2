@@ -29,8 +29,26 @@
       "password": "jajajajaj",
       "confirmPassword": "ajsjadjasjd",
       "id": 3
+    },
+    {
+      "firstName": "asdasd",
+      "lastName": "asdasdas",
+      "phone": "12312312",
+      "email": "holaqtal@gmail.com",
+      "dni": "132132",
+      "password": "jirafas123",
+      "confirmPassword": "jirafas123",
+      "id": 4
+    },
+    {
+      "firstName": "chayane",
+      "lastName": "huy",
+      "phone": "12123",
+      "email": "chayane@gmail.com",
+      "dni": "123312",
+      "password": "jirafas123",
+      "confirmPassword": "jirfas123",
+      "id": 5
     }
-  ],
-
-
+  ]
 }

@@ -1,27 +1,54 @@
-<div class="login-container">
-  <h1>Finance Concept</h1>
-  <h3>Login</h3>
+<div class="wrapper">
+  <div class="login-container">
+    <h3>Login</h3>
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Your Email">
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" class="form-control" formControlName="password" placeholder="Your Password">
+      </div>
+      <button type="submit" class="btn btn-primary">Login</button>
+      <div *ngIf="loginError" class="error-message">
+        Login failed. Please check your email and password.
+      </div>
+    </form>
+    <p class="forgot-password-link">
+      <a routerLink="/forgot-password">Forgot your password?</a>
+    </p>
+  </div>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" id="email" class="form-control" formControlName="email" placeholder="Email">
-    </div>
-
-    <div class="form-group">
-      <label for="password">Password</label>
-      <input type="password" id="password" class="form-control" formControlName="password" placeholder="Password">
-    </div>
-
-    <a routerLink="/form" type="submit" class="btn btn-primary">Login</a>
-
-    <div *ngIf="loginError" class="alert alert-danger mt-3">
-      Login failed. Please check your email and password.
-    </div>
-  </form>
-
-  <p class="mt-2">
-    Did you forget your password?
-    <a routerLink="/forgot-password">Forgot Password</a>
-  </p>
+  <div class="Finance-concept">
+    <h1><strong>Finance Concept</strong></h1>
+    <p>Las finanzas son un campo</p>
+    <p>que se enfoca en la gestión</p>
+    <p>del dinero, los activos y los</p>
+    <p>recursos financieros.</p>
+  </div>
 </div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-section">
+      <h3>Ubicación y contacto</h3>
+      <p>Av. Primavera 587 Perú</p>
+      <p>Tel: (01) 6478134</p>
+    </div>
+    <div class="footer-section">
+      <h3>Síguenos</h3>
+      <ul>
+        <li><a href="#">Facebook</a></li>
+        <li><a href="#">Twitter</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Instagram</a></li>
+      </ul>
+    </div>
+    <div class="footer-section">
+      <h3>Contáctanos</h3>
+      <a href="#" class="whatsapp-button">Chatea por WhatsApp</a>
+    </div>
+  </div>
+</footer>
+
