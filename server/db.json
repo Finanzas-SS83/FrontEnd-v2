@@ -41,14 +41,34 @@
       "id": 4
     },
     {
-      "firstName": "chayane",
-      "lastName": "huy",
+      "firstName": "Chayane",
+      "lastName": "Nose",
       "phone": "12123",
       "email": "chayane@gmail.com",
       "dni": "123312",
       "password": "jirafas123",
       "confirmPassword": "jirfas123",
       "id": 5
+    },
+    {
+      "firstName": "Leonardo",
+      "lastName": "Dicaprio",
+      "phone": "83737478",
+      "email": "leonardodicaprio@gmail.com",
+      "dni": "123123",
+      "password": "leonardodicaprio",
+      "confirmPassword": "leonardodicaprio",
+      "id": 6
+    },
+    {
+      "firstName": "Penelope",
+      "lastName": "Cruz",
+      "phone": "87461238",
+      "email": "penelope@gmail.com",
+      "dni": "7374727",
+      "password": "nosequeponer",
+      "confirmPassword": "nosequeponer",
+      "id": 7
     }
   ]
 }

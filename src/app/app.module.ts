@@ -25,7 +25,8 @@ import {DataHistoryComponent} from "./PlandePagos/components/data-history/data-h
 import { HttpClientModule } from '@angular/common/http';
 import {LoginComponent} from "./PlandePagos/components/login/login.component";
 import {SignupComponent} from "./PlandePagos/components/signup/signup.component";
-import { SessionContentComponent } from './Consulta/session-content/session-content.component'; // Importa HttpClientModule
+import { SessionContentComponent } from './Consulta/session-content/session-content.component';
+import { ProfileComponent } from './PlandePagos/components/profile/profile.component'; // Importa HttpClientModule
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import { SessionContentComponent } from './Consulta/session-content/session-cont
     LoginComponent,
     SignupComponent,
     SessionContentComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
