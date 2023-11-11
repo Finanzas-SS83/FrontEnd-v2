@@ -33,7 +33,7 @@ export class SignupService {
         const { id, ...dataWithoutId } = item;
         return this.http.post<SignupData>(
             `${this.basePath}/students`,
-            dataWithoutId,  // Enviar solo los datos del estudiante, sin 'id'
+            dataWithoutId,
             this.httpOptions
         ).pipe(
             retry(2),

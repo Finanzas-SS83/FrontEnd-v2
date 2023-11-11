@@ -1,10 +1,24 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { UserServiceService} from "../../PlandePagos/services/user-service/user-service.service";
+import { SignupData} from "../../PlandePagos/interfaces/signupdata";
 
 @Component({
   selector: 'app-side-bar-content',
   templateUrl: './side-bar-content.component.html',
   styleUrls: ['./side-bar-content.component.css']
 })
-export class SideBarContentComponent {
+export class SideBarContentComponent implements OnInit {
+  userData: SignupData | null = null;
 
+  constructor(private userService: UserServiceService) {}
+
+  ngOnInit() {
+
+
+    this.userService.user$.subscribe((user) => {
+      this.userData = user;
+    });
+  }
 }
+
+

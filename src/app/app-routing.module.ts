@@ -8,6 +8,7 @@ import {DataHistoryComponent} from "./PlandePagos/components/data-history/data-h
 import {LoginComponent} from "./PlandePagos/components/login/login.component";
 import {SignupComponent} from "./PlandePagos/components/signup/signup.component";
 import {SessionContentComponent} from "./Consulta/session-content/session-content.component";
+import {ProfileComponent} from "./PlandePagos/components/profile/profile.component";
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
@@ -19,6 +20,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent },
   {path: 'signup', component: SignupComponent },
   {path: 'session', component: SessionContentComponent },
+  { path: 'profile/:studentId', component: ProfileComponent },
 ];
 
 @NgModule({
