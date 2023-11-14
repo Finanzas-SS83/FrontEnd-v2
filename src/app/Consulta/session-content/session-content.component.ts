@@ -1,11 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ActivatedRoute, Router} from "@angular/router";
 import {DataService} from "../../services/data.service";
-import {TablasApiService} from "../../services/tablas-api.service";
 import {calcularSaldo, calcularTEA, calcularTEM, IRR} from "../../shared/funciones";
-import {UtilsService} from "../../shared/utils.service";
 import {CalculadoraService} from "../../shared/calculadora";
-import {TableFee} from "../../shared/interfaces/table-fee";
+import {BankData} from "../../shared/Classes/BankData";
 
 @Component({
   selector: 'app-session-content',
@@ -35,28 +32,22 @@ export class SessionContentComponent implements OnInit  {
   public VAN: any;
   public TIR: any;
 
-  private pCI : number= 0.20;
   private cPG : number= 3;
-  private pCF : number= 35 / 100;
   private NDxA: number = 360; //Num. de dias por a;o
   private frec: number = 30;
-  private PC: string = "Diaria"; //Periodo de capitalizacion
-  private pSegRie: number = 4.72 / 100;
-  private pSegDes: number = (0.05 / 100);
   tasa: number = 15 / 100; // tasa bcp calculador
   public GastosAdm: number= -10;
   private date: Date = new Date();
 
+  private bankData : BankData =new BankData();
   ngOnInit() {
     this.datosForm = this.dataService.getData();
     console.log("DATOSFORMS",this.datosForm);
 
     if (this.datosForm) {
       this.flujos = [];
-        this.tabledata = this.calcularvalores.calcularValores(this.datosForm, this.pCI,
-            this.cPG, this.pCF, this.NDxA, this.frec, this.PC, this.pSegRie,
-            this.pSegDes, this.tasa);
-      //TABLA DE CUOTAS
+      this.tabledata = this.bankData.calcularValores(this.datosForm);
+
       this.N = this.tabledata.N;
       this.Saldo = this.tabledata.Saldo;
       this.TEM = this.tabledata.TEM;
@@ -70,6 +61,7 @@ export class SessionContentComponent implements OnInit  {
       this.TEA= this.tabledata.TEA;
       this.CI= this.tabledata.CI;
       this.CF= this.tabledata.CF;
+
       this.tableFee = {
         N: this.N,
         monto: this.datosForm.monto,

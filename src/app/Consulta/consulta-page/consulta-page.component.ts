@@ -2,17 +2,8 @@ import {Component, Input, OnInit} from '@angular/core';
 import {UtilsService} from "../../shared/utils.service";
 
 import {
-  calcularAmort,
-  calcularCuota, calcularFlujo, calcularSaldo, calcularSaldoFinal, calcularSaldoInicial,
-  calcularSeguroRiesgo, calcularTasa, calcularTEA,
-  calcularTEM, formatoMosneda, IRR,
+ formatoMosneda
 } from "../../shared/funciones";
-import {BankFee} from "../../shared/interfaces/bank-fee";
-import {ActivatedRoute, Router} from "@angular/router";
-import {ThisReceiver} from "@angular/compiler";
-import { format } from 'date-fns';
-import {DataService} from "../../services/data.service";
-import {TablasApiService} from "../../services/tablas-api.service";
 
 @Component({
   selector: 'app-consulta-page',
