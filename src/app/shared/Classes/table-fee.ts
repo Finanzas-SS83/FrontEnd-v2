@@ -8,9 +8,9 @@ import {
   roundToTwoDecimals,
 } from "../funciones";
 
-import { TablasApiService } from "../../services/tablas-api.service";
 import { format } from "date-fns";
 import { BankFee } from "../interfaces/bank-fee";
+import {FinalFeeSchedule} from "./FinalFeeSchedule";
 
 export class TableFee {
   N: number = 0;
@@ -22,29 +22,38 @@ export class TableFee {
   SegRiePer: number = 0;
   GastosAdm: number = 0;
   tipoMoneda: string = "";
-  cPG: number = 0;
+  cPG: number = 6;
   fechaConsulta: Date = new Date();
 
   constructor(data: Partial<TableFee>) {
     Object.assign(this, data);
   }
 
-  generarCuota(Ncuota: number, periodoGracia: string, saldoFinalAnterior: number): BankFee {
-    const { N, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm, fechaConsulta } = this;
+  generarCuota(Ncuota: number, periodoGracia: string, saldoFinalAnterior: number,
+               saldoCap: number, referencia: { sFCAnterior: number }): BankFee {
+    const { N, Saldo, TEM, pSegDesPer,
+           CF, SegRiePer, GastosAdm,cPG,fechaConsulta } = this;
+
+    const { SegDesCF, ACF, SFCF}= new FinalFeeSchedule(Ncuota, CF, TEM, N,pSegDesPer, referencia.sFCAnterior);
+
     const NC = Ncuota;
     const PG = periodoGracia;
     const SI = calcularSaldoInicial(NC, N, Saldo, saldoFinalAnterior);
     const I = (-1 * SI) * TEM; //interes
-    const Cuota = calcularCuota(NC, N, PG, I, TEM, pSegDesPer, SI);
-    const SegDes = (-1 * SI) * pSegDesPer;
-    const A = calcularAmort(NC, N, PG, Cuota, I, SegDes, CF);
+    const Cuota = calcularCuota(NC, N, PG, I, TEM, saldoCap, cPG);
+    const SegDes = (-1 * SI) * pSegDesPer * (12/365)*30;
     const SegRie = calcularSeguroRiesgo(NC, N, SegRiePer);
-    const SF = calcularSaldoFinal(NC, N, PG, SI, I, A);
-    const flujo = calcularFlujo(Cuota, SegRie, 0, 0, GastosAdm, PG, SegDes, NC, N, CF);
+    const A = calcularAmort(NC, N, PG, Cuota, I, SegDes, SegDesCF, SegRie, 0, 0, GastosAdm);
+    const SF = calcularSaldoFinal( PG, SI, I, A);
+    const flujo = calcularFlujo(Cuota, SegRie, SegDesCF,0, 0, GastosAdm, PG, SegDes, ACF);
 
     const date = new Date(fechaConsulta);
     date.setMonth(date.getMonth() + (NC - 1));
     const fechaCuota = format(date, 'dd/MM/yyyy');
+
+    referencia.sFCAnterior =  SFCF;
+
+
 
     return {
       NC: NC,
@@ -65,7 +74,9 @@ export class TableFee {
 
    generate_Table(): BankFee[] {
     const cuotas: BankFee[] = [];
-    const { N } = this;
+    const { N, cPG } = this;
+    let saldoCap = 0;
+    const referencia = { sFCAnterior: 0 }; // Objeto que contiene la propiedad sFCAnterior
 
     for (let i = 0; i <= N; i++) {
       let PG = '';
@@ -77,7 +88,11 @@ export class TableFee {
         PG = 'S';
       }
       let anteriorSF = i > 0 ? cuotas[i - 1].SF : 0;
-      const nuevaCuota = this.generarCuota(i + 1, PG, anteriorSF);
+      const nuevaCuota = this.generarCuota(i + 1, PG, anteriorSF, saldoCap, referencia);
+      if(i+1==cPG) {
+        saldoCap=nuevaCuota.SI;
+      }
+
       cuotas.push(nuevaCuota);
     }
 

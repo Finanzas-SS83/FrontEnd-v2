@@ -8,12 +8,11 @@ export class BankData {
     private NDxA: number = 360;
     private frec: number = 30;
     private PC: string = "Diaria";
-    private pSegRie: number = 4.72 / 100;
-    private pSegDes: number = 0.05 / 100;
+    private pSegRie: number = 0.029 / 100;
+    private pSegDes: number = 0.049/100;
     private tasa: number = 15 / 100;
     private GastosAdm: number = -10;
     private date: Date = new Date();
-
 
     calcularValores(datosForm: UserData): any {
 
@@ -21,8 +20,8 @@ export class BankData {
         const tpTasa = datosForm.tipoTasaInteres;
         const N = datosForm.plazoPago;
 
-        const pSegDesPer = this.pSegDes * this.frec / 31;
-        const SegRiePer = (this.pSegRie * 31 / 365) * PV;
+        const pSegDesPer = this.pSegDes * this.frec / 30;
+        const SegRiePer = (this.pSegRie * 12 / 365) * PV * this.frec;
         const TEA = calcularTEA(tpTasa, this.tasa, this.NDxA, this.PC);
         const TEM = calcularTEM(TEA, this.frec, this.NDxA);
         const CI = this.pCI * datosForm.monto;
@@ -30,7 +29,7 @@ export class BankData {
 
         const Prestamo = PV - CI;
 
-        const Saldo = calcularSaldo(Prestamo, CF, TEM, this.pSegDes, N);
+        const Saldo = calcularSaldo(Prestamo, CF, TEM, N);
 
         return {
             N,

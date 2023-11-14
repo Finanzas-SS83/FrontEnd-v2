@@ -32,7 +32,7 @@ export class SessionContentComponent implements OnInit  {
   public VAN: any;
   public TIR: any;
 
-  private cPG : number= 3;
+  private cPG : number= 6;
   private NDxA: number = 360; //Num. de dias por a;o
   private frec: number = 30;
   tasa: number = 15 / 100; // tasa bcp calculador

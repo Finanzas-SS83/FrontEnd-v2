@@ -60,7 +60,7 @@
       { columnName: 'PG', displayName:'Periodo de gracia', visible: true },
       { columnName: 'SI', displayName:'Saldo inicial', visible: true },
       { columnName: 'I', displayName:'Interes', visible: true },
-      { columnName: 'Cuota', displayName:'Cuota', visible: false },
+      { columnName: 'Cuota', displayName:'Cuota', visible: true },
       { columnName: 'SegDes', displayName:'Seguro desgravamen', visible: true },
       { columnName: 'A', displayName:'Amortizacion', visible: true },
       { columnName: 'SegRie', displayName:'Seguro Bien', visible: true },

@@ -1,33 +1,36 @@
-export function calcularFlujo(Cuota: number, SegRie: number, GPS: number, Portes: number, GasAdm: number, PG: string, SegDes: number, NC: number, N: number, ACF: number): number {
-    let resultado = Cuota + SegRie + GPS + Portes + GasAdm;
+export function calcularFlujo(Cuota: number, SegRie: number,SegDesCF: number, GPS: number, Portes: number,
+                              GasAdm: number, PG: string, SegDes: number,
+                              ACF: number): number {
+    let resultado = Cuota + ACF;
+        console.log("Cuota", Cuota);
+        console.log("ACF", ACF);
 
     if (PG === 'T' || PG === 'P') {
-        resultado += SegDes;
+        resultado += SegDes + SegDesCF + SegRie + GPS + Portes + GasAdm;
+        console.log("SegDes", SegDes);
+        console.log("SegDesCF", SegDesCF);
+        console.log("SegRie", SegRie);
+        console.log("GasAdm", GasAdm);
+    } else {
+        resultado += 0;
     }
 
-    if (NC === N + 1) {
-        resultado -= ACF;
-    }
-    return resultado;
-}
-export function calcularSaldo(Prestamo: number, CF: number, TEM: number, pSegDes:number, N: number): number {
-    const resultado = Prestamo - CF / Math.pow(1+TEM + pSegDes,N+1);
     return resultado;
 }
 
-export function calcularSaldoFinal(NC: number, N: number,PG: string, SI: number, I: number, A: number): number {
-    if (PG == "T") {
+export function calcularSaldo(Prestamo: number, CF: number, TEM: number, N: number): number {
+    const resultado = Prestamo - CF / Math.pow(1+TEM,N+1);
+    return resultado;
+
+}
+
+export function calcularSaldoFinal(PG: string, SI: number, I: number, A: number): number {
+    if (PG === 'T') {
         return SI - I;
     } else {
-        return SI + A > 0 ? SI + A : 0 ;
-        //      if(NC <=N){
-        //         return SI + A > 0 ? SI + A : 0 ;
-        //     }else{
-        //         return 0;
-        //     }
+        return SI + A;
     }
 }
-
 export function calcularSeguroRiesgo(NC: number, N: number, SegRiePer: number): number {
     if (NC <= N + 1) {
         return -SegRiePer;
@@ -44,33 +47,33 @@ export function calcularAmort(
     Cuota: number,
     I: number,
     SegDes: number,
-    CF : number
+    SegDesCF: number,
+    SegRie: number,
+    GPS: number,
+    Portes: number,
+    GasAdm: number
 ): number {
     if (NC <= N) {
         if (PG === 'T' || PG === 'P') {
             return 0;
         } else {
-            return Cuota - I - SegDes;
+            return Cuota - I - SegDes - SegDesCF - SegRie - GPS - Portes - GasAdm;
         }
-    } else{
-        if(NC <= N+1){
-            return CF;
-        } else {
-            return 0;
-        }
+    } else {
+        return 0;
     }
 }
-
-
 export function calcularCuota(
     NC: number,
     N: number,
     PG: string,
     I: number,
     TEM: number,
-    pSegDesPer: number,
-    SI: number
+    SaldoCap: number,
+    cPG: number
 ): number {
+
+
 
     if (NC <= N) {
         if (PG === "T") {
@@ -79,13 +82,15 @@ export function calcularCuota(
             if (PG === "P") {
                 return I;
             } else {
-                return PMT((TEM + pSegDesPer), (N - NC + 1), SI, 0, 0);
+                return PMT(TEM, (N - cPG), SaldoCap, 0, 0);
             }
         }
     } else {
         return 0;
     }
 }
+
+
 export function PMT(ir: number, np: number, pv: number, fv: number, type: number) {
     /*
      * ir   - interest rate per month
