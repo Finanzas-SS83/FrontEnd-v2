@@ -1,5 +1,5 @@
 import {Injectable, Input} from '@angular/core';
-import {UserData} from "../PlandePagos/interfaces/form";
+import {UserData} from "./interfaces/form";
 import {calcularSaldo, calcularTEA, calcularTEM} from "./funciones";
 
 @Injectable({

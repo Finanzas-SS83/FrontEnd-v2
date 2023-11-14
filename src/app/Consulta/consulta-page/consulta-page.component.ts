@@ -7,7 +7,7 @@ import {
   calcularSeguroRiesgo, calcularTasa, calcularTEA,
   calcularTEM, formatoMosneda, IRR,
 } from "../../shared/funciones";
-import {BankFee} from "../../PlandePagos/interfaces/bank-fee";
+import {BankFee} from "../../shared/interfaces/bank-fee";
 import {ActivatedRoute, Router} from "@angular/router";
 import {ThisReceiver} from "@angular/compiler";
 import { format } from 'date-fns';

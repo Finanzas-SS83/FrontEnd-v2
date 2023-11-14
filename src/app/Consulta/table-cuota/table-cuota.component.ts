@@ -13,7 +13,7 @@
 
   import {TablasApiService} from "../../services/tablas-api.service";
   import {format} from "date-fns";
-  import {BankFee} from "../../PlandePagos/interfaces/bank-fee";
+  import {BankFee} from "../../shared/interfaces/bank-fee";
 
   @Component({
     selector: 'app-table-cuota',
@@ -39,12 +39,14 @@
 
 
     private  N: any;
+    @Input()   SendToApi: any;
     private  Saldo: any;
     private TEM: any;
     private  pSegDesPer: any;
     private  CF: any;
     private  SegRiePer: any;
     private  GastosAdm: any;
+    private fechaConsulta: any;
     tipoMoneda: any;
 
     flujos: number[] = [];
@@ -73,10 +75,13 @@
           this.SegRiePer = this.tableFee.SegRiePer;
           this.GastosAdm = this.tableFee.GastosAdm;
           this.tipoMoneda = this.tableFee.tipoMoneda;
+          this.fechaConsulta= this.tableFee.fechaConsulta;
 
           this.flujos = [];
           this.data = this.generate_Table();
-          this.sendDataToAPI(this.tableFee);
+          if(this.SendToApi==true) {
+              this.sendDataToAPI(this.tableFee);
+          }
       }
         this.tables.push(this.tables.length)
 
@@ -125,7 +130,8 @@
           const SF =  calcularSaldoFinal(NC, this.N,PG,SI,I,A);
           const flujo = calcularFlujo(Cuota,SegRie,0,0,GastosAdm,PG,SegDes,NC, this.N, this.CF);
 
-          const date = new Date();
+          const date = new Date(this.fechaConsulta);
+          console.log("daate",date);
           date.setMonth(date.getMonth()+(NC-1));
           const fechaCuota = format(date, 'dd/MM/yyyy');
 

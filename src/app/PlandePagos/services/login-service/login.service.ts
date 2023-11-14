@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { throwError, of, Observable } from "rxjs";
 import { catchError, map } from "rxjs/operators";
-import { SignupData } from "../../interfaces/signupdata";
+import { SignupData } from "../../../shared/interfaces/signupdata";
 
 @Injectable({
     providedIn: 'root'

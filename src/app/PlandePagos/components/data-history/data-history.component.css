@@ -1,8 +1,10 @@
-.centered-content {
-  text-align: center;
-  margin-top: 5%;
+.centered-content h1 {
+  font-size: 36px; /* Puedes ajustar el tamaño de fuente según tus preferencias */
 }
 
+.centered-content h2 {
+  display: none; /* Para ocultar el elemento <h2> */
+}
 .title-style {
   font-weight: bold;
 }
@@ -10,3 +12,70 @@
   margin-top: 20px; /* Ajusta el valor según el espacio que desees entre las tablas */
 }
 
+.consulta-title{
+  color:yellow;
+}
+.centered-content {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title-style {
+  font-size: 36px;
+}
+
+.card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  background-color: #007bff;
+  color: #fff;
+  padding: 15px;
+  text-align: center;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 24px;
+  flex: 1;
+}
+
+.card-header p {
+  margin: 5px;
+  flex: 1;
+}
+
+
+.card-footer {
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+}
+
+.card-footer button {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.card-footer button i {
+  margin-right: 5px;
+}
+
+.no-data-message {
+  font-size: 18px;
+  color: #555;
+  text-align: center;
+  margin-top: 20px;
+}

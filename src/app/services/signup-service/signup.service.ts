@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import{HttpClient, HttpErrorResponse, HttpHeaders} from "@angular/common/http";
 
 import {catchError, Observable, retry, throwError} from "rxjs";
-import {SignupData} from "../../PlandePagos/interfaces/signupdata";
+import {SignupData} from "../../shared/interfaces/signupdata";
 
 @Injectable({
   providedIn: 'root'

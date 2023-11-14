@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserServiceService} from "../../PlandePagos/services/user-service/user-service.service";
-import { SignupData} from "../../PlandePagos/interfaces/signupdata";
+import { SignupData} from "../../shared/interfaces/signupdata";
 
 @Component({
   selector: 'app-side-bar-content',

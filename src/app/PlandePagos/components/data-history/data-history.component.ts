@@ -16,4 +16,15 @@ export class DataHistoryComponent implements OnInit {
       this.datos = data;
     });
   }
+  borrarDato(id: number): void {
+    console.log(`Borrando dato con ID: ${id}`);
+    this.tablasApiService.deleteDataFromAPI(id).subscribe(() => {
+      console.log('Dato borrado exitosamente');
+      this.tablasApiService.getDatos().subscribe((data) => {
+        this.datos = data;
+      });
+    });
+  }
+
+
 }

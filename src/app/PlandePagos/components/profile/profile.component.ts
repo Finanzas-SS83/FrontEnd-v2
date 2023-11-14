@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { SignupData } from '../../interfaces/signupdata';
+import { SignupData } from '../../../shared/interfaces/signupdata';
 import { ActivatedRoute } from '@angular/router';
 import { ProfileServiceService } from '../../services/profile-service/profile-service.service';
 
