@@ -11,5 +11,4 @@ export interface BankFee {
   GastosAdm: number;
   SF: number;
   flujo: number;
-  tipoMoneda: string;
 }

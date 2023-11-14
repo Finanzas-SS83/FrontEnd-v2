@@ -15,6 +15,7 @@ export class FormContentComponent {
   cantidadPeriodos: number = 0;
   tipoPeriodoGracia: string = "";
   plazoPago: string = "";
+
   saveData: UserData = {
     monto: this.monto,
     tipoMoneda: this.tipoMoneda,
