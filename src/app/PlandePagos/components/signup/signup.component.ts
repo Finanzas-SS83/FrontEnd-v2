@@ -3,7 +3,7 @@ import { FormBuilder, FormGroup, Validators, AbstractControl, ValidationErrors, 
 import { Router } from "@angular/router";
 import { MatTableDataSource } from "@angular/material/table";
 import {SignupService} from "../../../services/signup-service/signup.service";
-import {SignupData} from "../../interfaces/signupdata";
+import {SignupData} from "../../../shared/interfaces/signupdata";
 
 function customPasswordValidator(): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {

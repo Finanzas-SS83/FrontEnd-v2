@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { DataService } from "../../services/data.service";
-import { UserData } from "../../PlandePagos/interfaces/form";
+import { UserData } from "../../shared/interfaces/form";
 
 @Component({
   selector: 'app-form-content',

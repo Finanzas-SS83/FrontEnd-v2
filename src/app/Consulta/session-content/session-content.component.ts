@@ -5,7 +5,7 @@ import {TablasApiService} from "../../services/tablas-api.service";
 import {calcularSaldo, calcularTEA, calcularTEM, IRR} from "../../shared/funciones";
 import {UtilsService} from "../../shared/utils.service";
 import {CalculadoraService} from "../../shared/calculadora";
-import {TableFee} from "../../PlandePagos/interfaces/table-fee";
+import {TableFee} from "../../shared/interfaces/table-fee";
 
 @Component({
   selector: 'app-session-content',
@@ -45,7 +45,7 @@ export class SessionContentComponent implements OnInit  {
   private pSegDes: number = (0.05 / 100);
   tasa: number = 15 / 100; // tasa bcp calculador
   public GastosAdm: number= -10;
-
+  private date: Date = new Date();
 
   ngOnInit() {
     this.datosForm = this.dataService.getData();
@@ -70,9 +70,9 @@ export class SessionContentComponent implements OnInit  {
       this.TEA= this.tabledata.TEA;
       this.CI= this.tabledata.CI;
       this.CF= this.tabledata.CF;
-
       this.tableFee = {
         N: this.N,
+        monto: this.datosForm.monto,
         Saldo: this.Saldo,
         TEM: this.TEM,
         pSegDesPer: this.pSegDesPer,
@@ -80,7 +80,8 @@ export class SessionContentComponent implements OnInit  {
         SegRiePer: this.SegRiePer,
         GastosAdm: this.GastosAdm,
         tipoMoneda: this.datosForm.tipoMoneda,
-        cPG: this.cPG
+        cPG: this.cPG,
+        fechaConsulta: this.date,
       }
 
       console.log("TABLEFEE",this.tableFee);
