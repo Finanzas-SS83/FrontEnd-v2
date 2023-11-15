@@ -6,32 +6,33 @@
       <div class="column">
         <div class="label-input-group">
           <label for="primernombre">Nombre:</label>
-          <input type="text" id="primernombre" name="nombre" [(ngModel)]="userProfile.firstName" disabled>
+          <input type="text" id="primernombre" name="nombre" [(ngModel)]="userProfile.firstName">
         </div>
         <div class="label-input-group">
           <label for="apellido">Apellido:</label>
-          <input type="text" id="apellido" name="apellido" [(ngModel)]="userProfile.lastName" disabled>
+          <input type="text" id="apellido" name="apellido" [(ngModel)]="userProfile.lastName">
         </div>
         <div class="label-input-group">
           <label for="telefono">Teléfono:</label>
-          <input type="tel" id="telefono" name="telefono" [(ngModel)]="userProfile.phone" disabled>
+          <input type="tel" id="telefono" name="telefono" [(ngModel)]="userProfile.phone">
         </div>
       </div>
 
       <div class="column">
         <div class="label-input-group">
           <label for="otroApellido">Apellido:</label>
-          <input type="text" id="otroApellido" name="otroApellido" [(ngModel)]="userProfile.lastName" disabled>
+          <input type="text" id="otroApellido" name="otroApellido" [(ngModel)]="userProfile.lastName">
         </div>
 
         <div class="column">
           <div class="label-input-group">
             <label for="direccion">Dirección:</label>
-            <input type="text" id="direccion" name="direccion" [(ngModel)]="userProfile.direccion" [disabled]="!isEditing">
+            <input type="text" id="direccion" name="direccion" [(ngModel)]="userProfile.direccion">
           </div>
-        <div class="label-input-group">
-          <label for="password">Password:</label>
-          <input type="text" id="password" name="password" type="password" [(ngModel)]="userProfile.password" disabled>
+          <div class="label-input-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" [(ngModel)]="userProfile.password">
+          </div>
         </div>
       </div>
     </div>
@@ -43,5 +44,4 @@
       <button class="update-btn update-btn-secondary" *ngIf="isEditing" (click)="cancelEdit()">Cancel</button>
     </div>
   </div>
-</div>
 </div>

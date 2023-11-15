@@ -6,6 +6,8 @@ import {calcularSaldo, calcularTEA, calcularTEM, IRR} from "../../shared/funcion
 import {UtilsService} from "../../shared/utils.service";
 import {CalculadoraService} from "../../shared/calculadora";
 import {TableFee} from "../../PlandePagos/interfaces/table-fee";
+import { UserServiceService } from "../../PlandePagos/services/user-service/user-service.service";
+import {SignupData} from "../../PlandePagos/interfaces/signupdata";
 
 @Component({
   selector: 'app-session-content',
@@ -13,6 +15,7 @@ import {TableFee} from "../../PlandePagos/interfaces/table-fee";
   styleUrls: ['./session-content.component.css']
 })
 export class SessionContentComponent implements OnInit  {
+  userData: SignupData | null = null;
   datosForm: any;
   tabledata: any;
 
@@ -45,7 +48,7 @@ export class SessionContentComponent implements OnInit  {
   private pSegDes: number = (0.05 / 100);
   tasa: number = 15 / 100; // tasa bcp calculador
   public GastosAdm: number= -10;
-
+  private studentId: number | null = null;
 
   ngOnInit() {
     this.datosForm = this.dataService.getData();
@@ -70,6 +73,15 @@ export class SessionContentComponent implements OnInit  {
       this.TEA= this.tabledata.TEA;
       this.CI= this.tabledata.CI;
       this.CF= this.tabledata.CF;
+      this.userService.user$.subscribe((user) => {
+        this.userData = user;
+        if (this.userData) {
+          this.studentId = this.userData.id;
+          // Rest of your logic...
+          console.log('Student ID:', this.studentId);
+          // Rest of your logic...
+        }
+      });
 
       this.tableFee = {
         N: this.N,
@@ -80,7 +92,8 @@ export class SessionContentComponent implements OnInit  {
         SegRiePer: this.SegRiePer,
         GastosAdm: this.GastosAdm,
         tipoMoneda: this.datosForm.tipoMoneda,
-        cPG: this.cPG
+        cPG: this.cPG,
+        studentId: this.studentId,
       }
 
       console.log("TABLEFEE",this.tableFee);
@@ -95,7 +108,7 @@ export class SessionContentComponent implements OnInit  {
 
     }
   }
-  constructor(private dataService: DataService, private calcularvalores: CalculadoraService) {
+  constructor(private dataService: DataService, private calcularvalores: CalculadoraService,private userService: UserServiceService) {
 
   }
 

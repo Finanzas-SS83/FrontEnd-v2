@@ -6,5 +6,6 @@ export interface TableFee {
   CF: number,
   SegRiePer: number,
   GastosAdm: number,
-  cPG: number
+  cPG: number,
+  studentID:number;
 }

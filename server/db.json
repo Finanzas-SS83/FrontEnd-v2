@@ -8,7 +8,9 @@
       "dni": "812381328",
       "password": "holacomoestas",
       "confirmPassword": "holacomoestas",
-      "id": 1
+      "id": 1,
+      "profileImage": "https://cdn.discordapp.com/attachments/1149190528756363337/1172571557047050351/1361728.png?ex=6560cd5c&is=654e585c&hm=fa1abee9a3e82d0c8e496c5ee66fa98810df518fd4691e76663d0a1a3bcf6ebe&",
+      "direccion": "Puente Piedra"
     },
     {
       "firstName": "Jhonatan",
@@ -21,14 +23,16 @@
       "id": 2
     },
     {
-      "firstName": "Finn ",
+      "firstName": "Finn xd",
       "lastName": "el Humano",
       "phone": "1231232",
       "email": "finhuman@gmail.com",
       "dni": "123123",
       "password": "jajajajaj",
       "confirmPassword": "ajsjadjasjd",
-      "id": 3
+      "id": 3,
+      "profileImage": "https://cdn.discordapp.com/attachments/1149190528756363337/1172571557047050351/1361728.png?ex=6560cd5c&is=654e585c&hm=fa1abee9a3e82d0c8e496c5ee66fa98810df518fd4691e76663d0a1a3bcf6ebe&",
+      "direccion": "Direccion sin especificar"
     },
     {
       "firstName": "asdasd",
@@ -69,6 +73,91 @@
       "password": "nosequeponer",
       "confirmPassword": "nosequeponer",
       "id": 7
+    },
+    {
+      "firstName": "Mateo",
+      "lastName": "Salas",
+      "phone": "987601402",
+      "email": "mateo@gmail.com",
+      "dni": "71020919",
+      "password": "kurt1234",
+      "confirmPassword": "kurt1234",
+      "id": 8
+    },
+    {
+      "firstName": "zule",
+      "lastName": "salas",
+      "phone": "123456789",
+      "email": "zule@gmail.com",
+      "dni": "123456789",
+      "password": "zule1234",
+      "confirmPassword": "zule1234",
+      "id": 9
+    },
+    {
+      "firstName": "Mateo",
+      "lastName": "Mqueen",
+      "phone": "123456789",
+      "email": "mate@gmail.com",
+      "dni": "1234567890",
+      "password": "mate1234",
+      "confirmPassword": "mate1234",
+      "id": 10,
+      "profileImage": "https://cdn.discordapp.com/attachments/1149190528756363337/1172571557047050351/1361728.png?ex=6560cd5c&is=654e585c&hm=fa1abee9a3e82d0c8e496c5ee66fa98810df518fd4691e76663d0a1a3bcf6ebe&",
+      "direccion": "Direccion sin especificar"
+    }
+  ],
+  "tablas": [
+    {
+      "N": 24,
+      "Saldo": 6686.15425455529,
+      "TEM": 0.012575815353266906,
+      "pSegDesPer": 0.0004838709677419355,
+      "CF": 4277.7,
+      "SegRiePer": 48.99515178082192,
+      "GastosAdm": -10,
+      "tipoMoneda": "USD",
+      "cPG": 3,
+      "id": 1
+    },
+    {
+      "N": 24,
+      "Saldo": 6752.895444136026,
+      "TEM": 0.012575815353266906,
+      "pSegDesPer": 0.0004838709677419355,
+      "CF": 4320.4,
+      "SegRiePer": 49.48422136986302,
+      "GastosAdm": -10,
+      "tipoMoneda": "USD",
+      "cPG": 3,
+      "studentId": 1,
+      "id": 2
+    },
+    {
+      "N": 24,
+      "Saldo": 21882.357239585304,
+      "TEM": 0.012575815353266906,
+      "pSegDesPer": 0.0004838709677419355,
+      "CF": 14000,
+      "SegRiePer": 160.35068493150686,
+      "GastosAdm": -10,
+      "tipoMoneda": "PEN",
+      "cPG": 3,
+      "studentId": 3,
+      "id": 3
+    },
+    {
+      "N": 36,
+      "Saldo": 57584854.59648534,
+      "TEM": 0.012575815353266906,
+      "pSegDesPer": 0.0004838709677419355,
+      "CF": 34536856.9,
+      "SegRiePer": 395572.04709260276,
+      "GastosAdm": -10,
+      "tipoMoneda": "USD",
+      "cPG": 3,
+      "studentId": 1,
+      "id": 4
     }
   ]
 }
