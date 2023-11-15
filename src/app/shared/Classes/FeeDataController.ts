@@ -21,13 +21,13 @@ export class FeeDataController {
     public feeData: any;
     public tableApiServices: TablasApiService;
 
-    constructor(dataForm: UserData, dataBank: BankData, tableApiService: TablasApiService) {
+    constructor(dataForm: UserData, dataBank: BankData, tableApiService: TablasApiService, studentId: number | null) {
         this.tableApiServices= tableApiService;
 
         this.dataform = dataForm;
         this.databank= dataBank;
         this.feeData= this.databank.calcularValores(this.dataform);
-        this.tableFee = this.generateTableFee()
+        this.tableFee = this.generateTableFee(studentId)
 
         this.bankFees = this.generateBankFees();
         this.cok  = this.calculateCock(50);
@@ -40,11 +40,11 @@ export class FeeDataController {
         }
 
 
-    generateTableFee(): TableFee{
+    generateTableFee(studentId: number | null): TableFee{
         const{ N, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm } = this.feeData;
         const{ monto,tipoMoneda,cantidadPeriodos , tipoPeriodoGracia} = this.dataform;
         console.log("tipopERIDOS", tipoPeriodoGracia);
-        return new TableFee({N, monto, Saldo, TEM, Portes:0, Gps:0, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, tipoPeriodo:tipoPeriodoGracia, cPG: cantidadPeriodos, fechaConsulta: new Date()});
+        return new TableFee({N, monto, Saldo, TEM, Portes:0, Gps:0, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, tipoPeriodo:tipoPeriodoGracia, cPG: cantidadPeriodos, fechaConsulta: new Date(),studentId: studentId});
     }
 
     generateBankFees(): BankFee[]{

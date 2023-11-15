@@ -4,24 +4,24 @@
 
 <ng-container *ngIf="datos && datos.length > 0; else noData">
   <ng-container *ngFor="let data of datos; let i = index">
-    <div class="card">
+    <div class="card" *ngIf="data.studentId === userData?.id">
       <!-- Información de la consulta (fecha y monto) -->
       <div class="card-header">
-        <h3 class="consulta-title"> Consulta {{ i + 1 }}</h3>
+        <h3 class="consulta-title">Consulta {{ i + 1 }}</h3>
         <p>Tipo de Moneda: <br>{{ data.tipoMoneda }}</p>
-        <p>Fecha de Consulta: <br> {{ data.fechaConsulta | date:'short' }}</p>
-        <p>Monto: <br> {{ data.monto | currency }}</p>
-        <p>Tasa Mensual:<br> {{ (data.TEM *100).toFixed(2) }}% (TEM)</p> <!-- Formatear la tasa a dos decimales -->
-        <p>Cantidad de cuotas: <br> {{ data.N + 1 }}</p>
+        <p>Fecha de Consulta: <br>{{ data.fechaConsulta | date:'short' }}</p>
+        <p>Monto: <br>{{ data.monto | currency }}</p>
+        <p>Tasa Mensual:<br>{{ (data.TEM * 100).toFixed(2) }}% (TEM)</p> <!-- Formatear la tasa a dos decimales -->
+        <p>Cantidad de cuotas: <br>{{ data.N + 1 }}</p>
       </div>
 
       <!-- Contenido de la tabla -->
-      <app-table-cuota class="flex p-10" [bankFees]="table(data)" [SendToApi]="false" [tipoMoneda]="data.tipoMoneda"/>
+      <app-table-cuota class="flex p-10" [bankFees]="table(data)" [SendToApi]="false" [tipoMoneda]="data.tipoMoneda"></app-table-cuota>
 
       <!-- Icono para borrar la tabla del historial (puedes ajustar la acción y el estilo según tus necesidades) -->
       <div class="card-footer">
-        <button (click)="borrarDato(data.id)" >
-          <i class="fa fa-trash" ></i> Borrar
+        <button (click)="borrarDato(data.id)">
+          <i class="fa fa-trash"></i> Borrar
         </button>
       </div>
     </div>

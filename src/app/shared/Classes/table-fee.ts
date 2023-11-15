@@ -27,7 +27,7 @@ export class TableFee {
   tipoPeriodo: string = "";
   cPG: number = 0;
   fechaConsulta: Date = new Date();
-
+    studentId: number | null = null;
   constructor(data: Partial<TableFee>) {
     Object.assign(this, data);
     if (this.tipoPeriodo=='S'){

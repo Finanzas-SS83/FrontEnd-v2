@@ -70,5 +70,43 @@
       "confirmPassword": "nosequeponer",
       "id": 7
     }
+  ],
+  "tablas": [
+     {
+      "N": 24,
+      "monto": 123123,
+      "Saldo": 66968.79904942731,
+      "TEM": 0.012575815353266906,
+      "Portes": 0,
+      "Gps": 0,
+      "pSegDesPer": 0.00049,
+      "CF": 43093.049999999996,
+      "SegRiePer": 35.21655123287671,
+      "GastosAdm": -10,
+      "tipoMoneda": "PEN",
+      "tipoPeriodo": "P",
+      "cPG": 2,
+      "fechaConsulta": "2023-11-15T17:27:42.003Z",
+      "studentId": 3,
+      "id": 3
+    },
+    {
+      "N": 24,
+      "monto": 23123,
+      "Saldo": 12577.012746764682,
+      "TEM": 0.012575815353266906,
+      "Portes": 0,
+      "Gps": 0,
+      "pSegDesPer": 0.00049,
+      "CF": 8093.049999999999,
+      "SegRiePer": 6.613811506849315,
+      "GastosAdm": -10,
+      "tipoMoneda": "USD",
+      "tipoPeriodo": "P",
+      "cPG": 2,
+      "fechaConsulta": "2023-11-15T17:39:20.131Z",
+      "studentId": 1,
+      "id": 4
+    }
   ]
 }
