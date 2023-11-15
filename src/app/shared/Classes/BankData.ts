@@ -3,10 +3,9 @@ import {calcularSaldo, calcularTEA, calcularTEM} from "../funciones";
 
 export class BankData {
     private pCI: number = 0.20;
-    private cPG: number = 3;
     private pCF: number = 35 / 100;
-    private NDxA: number = 360;
-    private frec: number = 30;
+    public NDxA: number = 360;
+    public frec: number = 30;
     private PC: string = "Diaria";
     private pSegRie: number = 0.029 / 100;
     private pSegDes: number = 0.049/100;
@@ -28,7 +27,7 @@ export class BankData {
         const CF = PV * this.pCF;
 
         const Prestamo = PV - CI;
-
+        const GastosAdm= -10;
         const Saldo = calcularSaldo(Prestamo, CF, TEM, N);
 
         return {
@@ -40,6 +39,7 @@ export class BankData {
             CI,
             SegRiePer,
             Prestamo,
+            GastosAdm,
             PV,
             TEA
         };

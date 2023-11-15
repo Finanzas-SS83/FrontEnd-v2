@@ -28,7 +28,8 @@
 
   export class TableCuotaComponent implements OnInit {
     @Input() SendToApi: any;
-    @Input() tableFee: any;
+    @Input() bankFees: any;
+    @Input() tipoMoneda: any;
 
     columnNames: string[]=[];
 
@@ -41,12 +42,8 @@
 
     ngOnInit(){
 
-      if (this.tableFee) {
-          this.data = new TableFee(this.tableFee).generate_Table();
-
-          if(this.SendToApi==true) {
-              this.tablasApiService.sendDataToAPI(this.data);
-          }
+      if (this.bankFees) {
+           this.data = this.bankFees;
 
           if (this.data && this.data.length > 0) {
             this.columnNames = this.displayedColumns.filter(column => column.visible).map(column => column.columnName);

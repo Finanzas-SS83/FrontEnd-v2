@@ -10,7 +10,7 @@
 
             <td mat-cell *matCellDef="let element" [class.sticky-cell]="isSticky(element)">
               <ng-container *ngIf="isNumberExcludingNC(element[column.columnName], column.columnName); else nonNumber">
-                {{ formatoMosneda(element[column.columnName],tableFee.tipoMoneda) }}
+                {{ formatoMosneda(element[column.columnName],tipoMoneda) }}
               </ng-container>
               <ng-template #nonNumber>
                 {{ element[column.columnName] }}

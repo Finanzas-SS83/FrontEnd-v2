@@ -11,7 +11,7 @@
       </div>
       <div class="data-row">
         <span class="data-label">Tasa de Interés:</span>
-        <span class="data-value"> {{tasa*100}}% ({{ datosForm.tipoTasaInteres }})</span>
+        <span class="data-value"> {{(tasa*100).toFixed(2)}}% ({{ datosForm.tipoTasaInteres }})</span>
       </div>
       <div class="data-row">
         <span class="data-label">Plazo de Pago:</span>
@@ -28,11 +28,11 @@
       </div>
       <div class="data-row">
         <span class="data-label">TEA (Tasa Efectiva Anual):</span>
-        <span class="data-value">{{ TEA *100}} %</span>
+        <span class="data-value">{{ (TEA *100).toFixed(2)}} %</span>
       </div>
       <div class="data-row">
         <span class="data-label">TEM (Tasa Efectiva Mensual):</span>
-        <span class="data-value">{{ TEM *100}} %</span>
+        <span class="data-value">{{ (TEM *100).toFixed(2)}} %</span>
       </div>
       <div class="data-row">
         <span class="data-label">CI (Capital Inicial):</span>
@@ -46,11 +46,11 @@
 
       <div class="data-row">
         <span class="data-label">VAN (Valor Actual Neto):</span>
-        <span class="data-value">{{ VAN }}</span>
+        <span class="data-value">{{ formatoMosneda(VAN,tipoMoneda) }}</span>
       </div>
       <div class="data-row">
         <span class="data-label">TIR (Tasa Interna de Retorno):</span>
-        <span class="data-value">{{ TIR }}</span>
+        <span class="data-value">{{ (TIR*100).toFixed(2) }}</span>
       </div>
     </div>
   </div>
