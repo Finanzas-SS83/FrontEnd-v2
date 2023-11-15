@@ -15,10 +15,10 @@ export class LoginComponent {
   loginError: boolean = false;
 
   constructor(
-      private formBuilder: FormBuilder,
-      private loginService: LoginService,
-      private userService: UserServiceService,
-      private router: Router
+    private formBuilder: FormBuilder,
+    private loginService: LoginService,
+    private userService: UserServiceService,
+    private router: Router
   ) {
     this.loginForm = this.formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -31,25 +31,25 @@ export class LoginComponent {
       const formData = this.loginForm.value;
 
       this.loginService.login(formData.email, formData.password).subscribe(
-          (success) => {
-            if (success) {
-              // Use the complete user data from the login service
-              this.loginService.getUserData(formData.email).subscribe(
-                  (userData) => {
-                    if (userData) {
-                      this.userService.setUser(userData);
-                      this.router.navigate(['/form', { email: formData.email }]);
-                    }
-                  }
-              );
-            } else {
-              this.loginError = true;
-            }
-          },
-          (error) => {
+        (success) => {
+          if (success) {
+            this.loginService.getUserData(formData.email).subscribe(
+              (userData) => {
+                if (userData) {
+                  this.userService.setUser(userData);
+                  // Navegar a la página deseada después del inicio de sesión
+                  this.router.navigate(['/form', { email: formData.email }]);
+                }
+              }
+            );
+          } else {
             this.loginError = true;
-            console.error('Error en la solicitud de inicio de sesión:', error);
           }
+        },
+        (error) => {
+          this.loginError = true;
+          console.error('Error en la solicitud de inicio de sesión:', error);
+        }
       );
     }
   }
