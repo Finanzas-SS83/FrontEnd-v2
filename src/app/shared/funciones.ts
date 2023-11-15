@@ -1,20 +1,17 @@
-export function calcularFlujo(Cuota: number, SegRie: number,SegDesCF: number, GPS: number, Portes: number,
+export function calcularFlujo(NC:number, N: number, Cuota: number, SegRie: number,SegDesCF: number, GPS: number, Portes: number,
                               GasAdm: number, PG: string, SegDes: number,
                               ACF: number): number {
     let resultado = Cuota + ACF;
-        console.log("Cuota", Cuota);
-        console.log("ACF", ACF);
 
     if (PG === 'T' || PG === 'P') {
         resultado += SegDes + SegDesCF + SegRie + GPS + Portes + GasAdm;
-        console.log("SegDes", SegDes);
-        console.log("SegDesCF", SegDesCF);
-        console.log("SegRie", SegRie);
-        console.log("GasAdm", GasAdm);
     } else {
         resultado += 0;
     }
 
+    if(NC == N+1) {
+        resultado +=SegDesCF+SegRie+GasAdm
+    }
     return resultado;
 }
 
@@ -53,10 +50,13 @@ export function calcularAmort(
     Portes: number,
     GasAdm: number
 ): number {
+
     if (NC <= N) {
+
         if (PG === 'T' || PG === 'P') {
             return 0;
         } else {
+
             return Cuota - I - SegDes - SegDesCF - SegRie - GPS - Portes - GasAdm;
         }
     } else {
@@ -73,17 +73,15 @@ export function calcularCuota(
     cPG: number
 ): number {
 
-
-
     if (NC <= N) {
-        if (PG === "T") {
+        if (PG == "T") {
             return 0;
+        } else if(PG == "P") {
+            return I;
         } else {
-            if (PG === "P") {
-                return I;
-            } else {
-                return PMT(TEM, (N - cPG), SaldoCap, 0, 0);
-            }
+            console.log("DATOS",TEM,N,cPG,SaldoCap);
+
+            return PMT(TEM, (N - cPG), SaldoCap, 0, 0);
         }
     } else {
         return 0;

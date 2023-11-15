@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {BankFee} from "../shared/interfaces/bank-fee";
+import {TableFee} from "../shared/Classes/table-fee";
 
 @Injectable({
   providedIn: 'root'
@@ -15,7 +16,7 @@ export class TablasApiService {
     return this.http.get<any>(`${this.apiUrl}/api/v1/tablas`);
   }
 
-  sendDataToAPI(data: BankFee[]) {
+  sendDataToAPI(data: TableFee) {
     return this.http.post<any>(`${this.apiUrl}/api/v1/tablas`, data);
   }
 
