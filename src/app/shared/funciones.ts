@@ -10,7 +10,7 @@ export function calcularFlujo(NC:number, N: number, Cuota: number, SegRie: numbe
     }
 
     if(NC == N+1) {
-        resultado +=SegDesCF+SegRie+GasAdm
+        resultado +=SegDesCF+SegRie+GasAdm;
     }
     return resultado;
 }
@@ -237,4 +237,31 @@ export function IRR(values: number[], guess?: number): number | string {
     if(contLoop) return '#NUM!';
 
     return resultRate;
+}
+
+export function determinarTasa(monto: number): number {
+
+  let tasaMin: number, tasaMax: number;
+
+  if (monto >= 15000 && monto <= 33000) {
+    tasaMin = 11.65;
+    tasaMax = 17.15;
+  } else if (monto > 33000 && monto <= 44000) {
+    tasaMin = 10.65;
+    tasaMax = 17.15;
+  } else if (monto > 44000 && monto <= 56000) {
+    tasaMin = 9.65;
+    tasaMax = 16.15;
+  } else if (monto > 56000 && monto <= 75000) {
+    tasaMin = 8.65;
+    tasaMax = 15.15;
+  } else if (monto > 75000 && monto <= 120000) {
+    tasaMin = 8.65;
+    tasaMax = 13.15;
+  } else {
+      return 15;
+  }
+
+  // Generar una tasa aleatoria dentro del rango
+  return parseFloat((Math.random() * (tasaMax - tasaMin) + tasaMin).toFixed(2));
 }

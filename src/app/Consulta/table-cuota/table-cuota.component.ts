@@ -55,14 +55,14 @@
       { columnName: 'NC', displayName:'Numero de cuota', visible: true },
       { columnName: 'fechaCuota', displayName:'Fecha', visible: true },
       { columnName: 'PG', displayName:'Periodo de gracia', visible: true },
-      { columnName: 'SI', displayName:'Saldo inicial', visible: true },
+      { columnName: 'SI', displayName:'Saldo inicial', visible: false },
       { columnName: 'I', displayName:'Interes', visible: true },
       { columnName: 'Cuota', displayName:'Cuota', visible: true },
       { columnName: 'SegDes', displayName:'Seguro desgravamen', visible: true },
       { columnName: 'A', displayName:'Amortizacion', visible: true },
       { columnName: 'SegRie', displayName:'Seguro Bien', visible: true },
       { columnName: 'GastosAdm', displayName:'Estados de Cuenta', visible: true },
-      { columnName: 'SF', displayName:'Saldo final', visible: true },
+      { columnName: 'SF', displayName:'Saldo', visible: true },
       { columnName: 'flujo', displayName:'Flujo', visible: true },
     ];
     stickyColumns :string[] = ['header-1', 'NC'];

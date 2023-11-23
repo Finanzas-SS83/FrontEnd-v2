@@ -7,7 +7,7 @@
     <div class="card" *ngIf="data.studentId === userData?.id">
       <!-- Información de la consulta (fecha y monto) -->
       <div class="card-header">
-        <h3 class="consulta-title">Consulta {{ i + 1 }}</h3>
+        <h3 class="consulta-title">Consulta </h3>
         <p>Tipo de Moneda: <br>{{ data.tipoMoneda }}</p>
         <p>Fecha de Consulta: <br>{{ data.fechaConsulta | date:'short' }}</p>
         <p>Monto: <br>{{ data.monto | currency }}</p>
