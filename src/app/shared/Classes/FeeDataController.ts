@@ -1,4 +1,4 @@
-import {TableFee} from "./table-fee";
+  import {TableFee} from "./table-fee";
 import {UserData} from "../interfaces/form";
 import {BankData} from "./BankData";
 import {BankFee} from "../interfaces/bank-fee";

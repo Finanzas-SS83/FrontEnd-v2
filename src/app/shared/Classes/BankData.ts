@@ -1,5 +1,5 @@
 import {UserData} from "../interfaces/form";
-import {calcularSaldo, calcularTEA, calcularTEM} from "../funciones";
+import {calcularSaldo, calcularTEA, calcularTEM, determinarTasa} from "../funciones";
 
 export class BankData {
     private pCI: number = 0.20;
@@ -7,8 +7,8 @@ export class BankData {
     public NDxA: number = 360;
     public frec: number = 30;
     private PC: string = "Diaria";
-    private pSegRie: number = 0.029 / 100;
-    private pSegDes: number = 0.049/100;
+    private pSegRie: number = 0.00388 / 100;
+    private pSegDes: number = 0.050/100;
     private tasa: number = 15 / 100;
     private GastosAdm: number = -10;
     private date: Date = new Date();
@@ -16,6 +16,8 @@ export class BankData {
     calcularValores(datosForm: UserData): any {
 
         const PV  = datosForm.monto;
+        this.tasa= determinarTasa(PV)/100;
+        console.log("tasa", this.tasa);
         const tpTasa = datosForm.tipoTasaInteres;
         const N = datosForm.plazoPago;
 
