@@ -26,6 +26,7 @@ export class TableFee {
   tipoMoneda: string = "";
   tipoPeriodo: string = "";
   cPG: number = 0;
+
   fechaConsulta: Date = new Date();
     studentId: number | null = null;
   constructor(data: Partial<TableFee>) {
