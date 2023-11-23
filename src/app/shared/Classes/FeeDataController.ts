@@ -27,7 +27,7 @@ export class FeeDataController {
         this.dataform = dataForm;
         this.databank= dataBank;
         this.feeData= this.databank.calcularValores(this.dataform);
-        this.tableFee = this.generateTableFee(studentId)
+        this.tableFee = this.generateTableFee()
 
         this.bankFees = this.generateBankFees();
         this.cok  = this.calculateCock(50);
@@ -36,15 +36,16 @@ export class FeeDataController {
         this.tcea = this.calculateTCEA(this.tir, dataBank.NDxA, dataBank.frec);
         this.van  =  this.calculateVAN(this.feeData.Prestamo, this.flujos);
 
-        this.tableApiServices.sendDataToAPI(this.tableFee).subscribe();
+        this.tableApiServices.sendDataToAPI(4,this.tableFee).subscribe();
         }
 
 
-    generateTableFee(studentId: number | null): TableFee{
-        const{ N, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm } = this.feeData;
+    generateTableFee(): TableFee{
+        const{ n, saldo, tem, psegDesPer, cf, segRiePer, gastosAdm } = this.feeData;
         const{ monto,tipoMoneda,cantidadPeriodos , tipoPeriodoGracia} = this.dataform;
         console.log("tipopERIDOS", tipoPeriodoGracia);
-        return new TableFee({N, monto, Saldo, TEM, Portes:0, Gps:0, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, tipoPeriodo:tipoPeriodoGracia, cPG: cantidadPeriodos, fechaConsulta: new Date(),studentId: studentId});
+        return new TableFee(
+          {n:n, monto:monto, saldo:saldo, tem:tem, portes:0, gps:0,psegDesPer:psegDesPer,cf:cf, segRiePer:segRiePer, gastosAdm:gastosAdm, tipoMoneda:tipoMoneda, tipoPeriodo:tipoPeriodoGracia, cpg: cantidadPeriodos, fechaConsulta: new Date()});
     }
 
     generateBankFees(): BankFee[]{

@@ -7,17 +7,17 @@ import { SignupData} from "../../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class ProfileServiceService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:8081/api/v1';
 
   constructor(private http: HttpClient) { }
 
   getStudentProfileById(studentId: string): Observable<SignupData> {
-    const url = `${this.apiUrl}/students/${studentId}`;
+    const url = `${this.apiUrl}/users/${studentId}`;
     return this.http.get<SignupData>(url);
   }
 
   updateStudentProfile(studentId: string, updatedProfile: SignupData): Observable<SignupData> {
-    const url = `${this.apiUrl}/students/${studentId}`;
+    const url = `${this.apiUrl}/users/${studentId}`;
     return this.http.put<SignupData>(url, updatedProfile).pipe(
       tap((user) => {
         // Actualizar el usuario en el almacenamiento local después de la actualización en el servidor

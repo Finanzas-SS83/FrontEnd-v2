@@ -8,12 +8,12 @@ import {SignupData} from "../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class LoginService {
-  private basePath = 'http://localhost:3000/api/v1';
+  private basePath = 'http://localhost:8081/api/v1';
 
   constructor(private http: HttpClient) {  }
 
   getUserData(email: string): Observable<SignupData | null> {
-    return this.http.get<SignupData[]>(`${this.basePath}/students`).pipe(
+    return this.http.get<SignupData[]>(`${this.basePath}/users`).pipe(
       map((students) => {
         // Encuentra al estudiante con el correo electrónico proporcionado
         const user = students.find((student) => student.email === email);
@@ -28,7 +28,7 @@ export class LoginService {
   }
   login(email: string, password: string) {
 
-    return this.http.get<SignupData[]>(`${this.basePath}/students`).pipe(
+    return this.http.get<SignupData[]>(`${this.basePath}/users`).pipe(
       map((students) => {
 
         const user = students.find((student) => student.email === email);

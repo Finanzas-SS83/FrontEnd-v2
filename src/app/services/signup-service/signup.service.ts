@@ -8,7 +8,7 @@ import {SignupData} from "../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class SignupService {
-  private basePath = 'http://localhost:3000/api/v1';
+  private basePath = 'http://localhost:8081/api/v1';
   private httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -32,7 +32,7 @@ export class SignupService {
 
         const { id, ...dataWithoutId } = item;
         return this.http.post<SignupData>(
-            `${this.basePath}/students`,
+            `${this.basePath}/users`,
             dataWithoutId,  // Enviar solo los datos del estudiante, sin 'id'
             this.httpOptions
         ).pipe(

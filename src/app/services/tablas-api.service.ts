@@ -8,21 +8,21 @@ import {TableFee} from "../shared/Classes/table-fee";
   providedIn: 'root'
 })
 export class TablasApiService {
-  private apiUrl = 'http://localhost:3000'; // Reemplaza con la URL de tu API
+  private apiUrl = 'http://localhost:8081/api/v1'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
 
   getDatos(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/api/v1/tablas`);
+    return this.http.get<any>(`${this.apiUrl}/tables`);
   }
 
-  sendDataToAPI(data: TableFee) {
-    return this.http.post<any>(`${this.apiUrl}/api/v1/tablas`, data);
+  sendDataToAPI(id:any,data: TableFee) {
+    return this.http.post<any>(`${this.apiUrl}/tables/${id}`, data);
   }
 
   deleteDataFromAPI(id: number) {
     console.log(`Enviando solicitud DELETE para el ID: ${id}`);
-    return this.http.delete<any>(`${this.apiUrl}/tablas/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/tables/${id}`);
   }
 
 }
