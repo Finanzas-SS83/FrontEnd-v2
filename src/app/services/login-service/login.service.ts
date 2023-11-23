@@ -8,7 +8,7 @@ import {SignupData} from "../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class LoginService {
-  private basePath = 'http://localhost:8081/api/v1';
+  private basePath = 'http://localhost:8080/api/v1';
 
   constructor(private http: HttpClient) {  }
 
