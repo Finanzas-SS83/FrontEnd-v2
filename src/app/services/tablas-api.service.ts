@@ -16,8 +16,26 @@ export class TablasApiService {
     return this.http.get<any>(`${this.apiUrl}/tables`);
   }
 
-  sendDataToAPI(id:any,data: TableFee) {
-    return this.http.post<any>(`${this.apiUrl}/tables/${id}`, data);
+  sendDataToAPI(userid:any,data: TableFee) {
+    console.log(data);
+    const dataToSend = {
+      monto: data.monto,
+      tipoMoneda: data.tipoMoneda,
+      tipoPeriodo: data.tipoPeriodo,
+      fechaConsulta: data.fechaConsulta,
+      saldo: data.Saldo,
+      portes: data.Portes,
+      gps: data.Gps,
+      cf: data.CF,
+      tem: data.TEM,
+      segRiePer: data.SegRiePer,
+      cpg: data.cPG,
+      n: data.N,
+      gastosAdm: data.GastosAdm,
+      psegDesPer: data.pSegDesPer
+    }
+    console.log("datos nuevos enviados al api", dataToSend);
+    return this.http.post<any>(`${this.apiUrl}/tables/${userid}`, dataToSend);
   }
 
   deleteDataFromAPI(id: number) {

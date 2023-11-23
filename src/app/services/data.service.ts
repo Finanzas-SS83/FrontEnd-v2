@@ -7,6 +7,7 @@ export class DataService {
   private savedData: any;
 
   saveData(data: any) {
+
     this.savedData = data;
   }
 
