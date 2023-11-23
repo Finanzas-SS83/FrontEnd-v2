@@ -32,8 +32,8 @@ export class DataHistoryComponent implements OnInit {
   }
 
   table(data: any) {
-    const { N, monto, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, cPG, fechaConsulta } = data;
-    const tableFee: TableFee = new TableFee({N, monto, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, cPG, fechaConsulta});
+    const { N, monto, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, cPG, fechaConsulta, tipoPeriodo} = data;
+    const tableFee: TableFee = new TableFee({N, monto, Saldo, TEM, pSegDesPer, CF, SegRiePer, GastosAdm, tipoMoneda, tipoPeriodo, cPG, fechaConsulta});
     const table = tableFee.generate_Table();
     console.log("TABLA", table);
     return table;
