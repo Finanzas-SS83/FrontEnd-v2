@@ -9,7 +9,7 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class TablasApiService {
-  private apiUrl = 'http://localhost:8081/api/v1'; // Reemplaza con la URL de tu API
+  private apiUrl = 'http://localhost:8080/api/v1'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
 

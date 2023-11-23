@@ -9,7 +9,7 @@ import {SignupData} from "../../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:8081/api/v1/';
+  private apiUrl = 'http://localhost:8080/api/v1/';
 
   constructor(private http: HttpClient, private userService: UserServiceService) {}
 
