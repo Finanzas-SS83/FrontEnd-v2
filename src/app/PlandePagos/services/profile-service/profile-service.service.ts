@@ -17,7 +17,7 @@ export class ProfileServiceService {
   }
 
   updateStudentProfile(studentId: string, updatedProfile: SignupData): Observable<SignupData> {
-    const url = `${this.apiUrl}/students/${studentId}`;
+    const url = `${this.apiUrl}/users/${studentId}`;
     return this.http.put<SignupData>(url, updatedProfile).pipe(
       tap((user) => {
         // Actualizar el usuario en el almacenamiento local después de la actualización en el servidor

@@ -36,7 +36,7 @@ export class FeeDataController {
         this.tcea = this.calculateTCEA(this.tir, dataBank.NDxA, dataBank.frec);
         this.van  =  this.calculateVAN(this.feeData.Prestamo, this.flujos);
 
-        this.tableApiServices.sendDataToAPI(this.tableFee).subscribe();
+        this.tableApiServices.sendDataToAPI(1,this.tableFee).subscribe();
         }
 
 

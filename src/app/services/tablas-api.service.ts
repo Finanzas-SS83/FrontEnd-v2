@@ -9,12 +9,12 @@ import {map} from "rxjs/operators";
   providedIn: 'root'
 })
 export class TablasApiService {
-  private apiUrl = 'http://localhost:3000'; // Reemplaza con la URL de tu API
+  private apiUrl = 'http://localhost:8081/api/v1'; // Reemplaza con la URL de tu API
 
   constructor(private http: HttpClient) {}
 
     getDatos(): Observable<TableFee[]> {
-        return this.http.get<DataToSend[]>(`${this.apiUrl}/api/v1/tablas`).pipe(
+        return this.http.get<DataToSend[]>(`${this.apiUrl}/tables`).pipe(
             map((data: DataToSend[]) => {
                 // Transformación de DataToSend a TableFee
                 return data.map((item: DataToSend) => {
@@ -39,7 +39,7 @@ export class TablasApiService {
             })
         );
     }
-  sendDataToAPI(data: TableFee) {
+  sendDataToAPI(userid:number,data: TableFee) {
     console.log(data);
     const dataToSend = {
       monto: data.monto,
@@ -59,12 +59,12 @@ export class TablasApiService {
         studentId: data.studentId,
     }
     console.log("datos nuevos enviados al api", dataToSend);
-    return this.http.post<any>(`${this.apiUrl}/api/v1/tablas`, dataToSend);
+    return this.http.post<any>(`${this.apiUrl}/tables/${userid}`, dataToSend);
   }
 
   deleteDataFromAPI(id: number) {
     console.log(`Enviando solicitud DELETE para el ID: ${id}`);
-    return this.http.delete<any>(`${this.apiUrl}/tablas/${id}`);
+    return this.http.delete<any>(`${this.apiUrl}/tables/${id}`);
   }
 
 }

@@ -9,12 +9,12 @@ import {SignupData} from "../../../shared/interfaces/signupdata";
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000';
+  private apiUrl = 'http://localhost:8081/api/v1/';
 
   constructor(private http: HttpClient, private userService: UserServiceService) {}
 
   login(credentials: { email: string, password: string }): Observable<SignupData> {
-    const loginUrl = `${this.apiUrl}/login`;
+    const loginUrl = `${this.apiUrl}/users`;
 
     return this.http.post<SignupData>(loginUrl, credentials).pipe(
       tap((user: SignupData) => {
